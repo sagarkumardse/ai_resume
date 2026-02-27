@@ -1,0 +1,225 @@
+{
+  "personal_info": {
+    "name": "Sagar Kumar",
+    "title": "Data Scientist | ML Engineer",
+    "tagline": "Building intelligent data-driven solutions",
+    "contact": {
+      "phone": "+81 8076026868",
+      "email": "mail.sagarcse01@gmail.com",
+      "website": "https://sagarkumardse.github.io",
+      "github": "https://github.com/sagarkumardse",
+      "linkedin": "https://www.linkedin.com/in/sagar-kumar-6b721a19b"
+    }
+  },
+
+  "education": [
+    {
+      "institution": "Indian Institute of Technology, India",
+      "degree": "B.Tech",
+      "major": "Data Science & Engineering",
+      "gpa": "7.90/10.0",
+      "start_date": "2019-07",
+      "end_date": "2023-06"
+    },
+    {
+      "institution": "CBSE Board, India",
+      "degree": "Senior Secondary (Grade 12)",
+      "major": "Mathematics",
+      "gpa": "9.2/10.0",
+      "year": 2019
+    },
+    {
+      "institution": "CBSE Board, India",
+      "degree": "Secondary (Grade 10)",
+      "major": "Mathematics",
+      "gpa": "9.2/10.0",
+      "year": 2017
+    }
+  ],
+
+  "experience": [
+    {
+      "company": "Rakuten Mobile",
+      "location": "Tokyo, Japan",
+      "role": "Data Scientist / ML Engineer",
+      "start_date": "2025-01",
+      "end_date": "Present",
+      "responsibilities": [
+        "Improved fraud and forced churn detection models to 70% precision and recall from 20–34%",
+        "Optimized ML models using GridSearchCV and Optuna",
+        "Reduced sales forecasting error from 35% to 10% using LSTM models",
+        "Designed clustering models for Japanese postal codes using NOTEARS and behavioral segmentation",
+        "Delivered executive-level analytics reports for data-driven decision making"
+      ],
+      "domains": ["Fraud Detection", "Forecasting", "Customer Analytics"]
+    },
+    {
+      "company": "Rakuten Group",
+      "location": "Tokyo, Japan",
+      "role": "Data Science Engineer",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "responsibilities": [
+        "Integrated 100+ features and 15,000+ subfeatures into statistical pipelines",
+        "Refactored and tested Transformers-based Python libraries",
+        "Developed 20+ pytest test classes covering edge cases",
+        "Extended feature pipelines across ecosystem services",
+        "Generated head-and-tail query analysis reports focusing on GMS optimization"
+      ],
+      "domains": ["Search Systems", "Feature Engineering", "Data Pipelines"]
+    },
+    {
+      "company": "Stealth Startup",
+      "location": "USA (Remote)",
+      "role": "Machine Learning Intern",
+      "start_date": "2023-07",
+      "end_date": "2023-10",
+      "responsibilities": [
+        "Built scalable backend ML features",
+        "Implemented RAG systems using OpenAI LLMs",
+        "Improved recommendation system latency by 10x",
+        "Worked in fast-paced startup environment across teams"
+      ],
+      "domains": ["LLMs", "RAG", "Backend ML"]
+    },
+    {
+      "company": "Front Row",
+      "location": "India",
+      "role": "Data Intern",
+      "start_date": "2022-03",
+      "end_date": "2022-06",
+      "responsibilities": [
+        "ETL from 10+ data sources using Python",
+        "Automated EDA pipelines using Google Sheets",
+        "Performed daily analytics to optimize expert session scheduling",
+        "Improved EDA and RCA efficiency by 1.5x"
+      ],
+      "domains": ["Data Analysis", "Automation"]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Algorithmic Trading Using CNN",
+      "technologies": ["CNN", "Deep Learning", "Technical Indicators"],
+      "duration": "2023-02 to 2023-05",
+      "highlights": [
+        "Converted stock data into 14x15 indicator images",
+        "Improved generalization by 75% using sector-wise model stacking",
+        "Reduced dataset dimensionality by 70%",
+        "Outperformed market benchmark with 10.68% returns"
+      ],
+      "links": ["https://github.com/PratikshaJain37/MTP"]
+    },
+    {
+      "name": "YouTube Video Summarizer",
+      "technologies": ["Python", "LLM", "Transformers", "Streamlit"],
+      "highlights": [
+        "Built a video summarization web app",
+        "Used keyword search instead of token classification for 33% speed improvement",
+        "Enabled multi-model selection"
+      ],
+      "links": ["https://yt-advanced-summarizer.streamlit.app/"]
+    },
+    {
+      "name": "Deepfake Detection",
+      "technologies": ["CNN", "Deep Learning"],
+      "highlights": [
+        "Trained on 10,000 images",
+        "Achieved 88.7% accuracy",
+        "Top 5% in Kaggle competition"
+      ]
+    },
+    {
+      "name": "Image Classification with FCNN & Autoencoders",
+      "technologies": ["Deep Learning"],
+      "highlights": [
+        "Compared FCNN and Autoencoders on MNIST",
+        "Achieved 97% accuracy on clean data",
+        "Maintained 94.1% accuracy on noisy data"
+      ]
+    }
+  ],
+
+  "skills": {
+    "programming_languages": ["Python", "SQL"],
+    "machine_learning": [
+      "TensorFlow",
+      "Keras",
+      "Scikit-learn",
+      "Random Forest",
+      "GridSearchCV",
+      "Optuna"
+    ],
+    "data_engineering": ["PySpark", "MySQL"],
+    "data_analysis": ["Pandas", "NumPy", "Matplotlib", "Seaborn"],
+    "quantitative_methods": [
+      "Mathematical Optimization",
+      "Mathematical Modeling",
+      "NOTEARS"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Anaconda",
+      "Jupyter",
+      "GCP",
+      "CUDA",
+      "Pytest"
+    ]
+  },
+
+  "languages": ["English", "Hindi"],
+
+  "certifications": [
+    {
+      "name": "Algorithmic Toolbox",
+      "platform": "Coursera",
+      "year": 2020
+    },
+    {
+      "name": "AI for Everyone",
+      "platform": "Coursera",
+      "year": 2020
+    },
+    {
+      "name": "Cloud Engineering Track",
+      "year": 2021
+    },
+    {
+      "name": "Data Science and Machine Learning Track",
+      "year": 2021
+    }
+  ],
+
+  "leadership_and_extracurricular": [
+    {
+      "role": "Branch Representative",
+      "organization": "Data Science and Engineering",
+      "duration": "2019-Present"
+    },
+    {
+      "role": "Content Coordinator",
+      "organization": "Sports Society",
+      "duration": "2020-2021"
+    }
+  ],
+
+  "hobbies_and_interests": {
+    "hobbies": ["Photography", "Movies", "Hiking", "Gym"],
+    "personal_achievements": [
+      "Hiked Mount Fuji",
+      "Hiked Kita-Dake",
+      "Cycled 150km in Tsukuba",
+      "Cycled 140km on Shimanami Kaido"
+    ],
+    "movies_and_tv": {
+      "favorite_movies": ["Interstellar", "Dune"],
+      "favorite_franchises": ["Marvel Cinematic Universe (up to Endgame)"],
+      "preferred_genres": ["Sci-Fi", "Sitcoms"]
+    },
+    "photography_gear": {
+      "camera": "Canon R50"
+    }
+  }
+}

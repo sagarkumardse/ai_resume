@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume + Chat</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="layout layout-initial">
+      <section class="panel resume-panel">
+        <header class="resume-header">
+          <div class="resume-title">
+            <span class="eyebrow">Futuristic Resume</span>
+            <h1 id="resume-name">Resume</h1>
+            <p id="resume-tagline">Ask the assistant about my experience.</p>
+            <div id="resume-badges" class="resume-badges"></div>
+            <div id="resume-focus" class="resume-focus"></div>
+          </div>
+          <div class="photo-frame">
+            <img id="resume-photo" alt="Profile photo" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="resume-meta" id="resume-meta"></div>
+
+        <div id="resume-content" class="resume-content">
+          <div class="resume-loading">Loading resume...</div>
+        </div>
+
+        <div class="resume-actions">
+          <button id="resume-reset" class="ghost-button" type="button">
+            View full resume
+          </button>
+        </div>
+      </section>
+
+      <section class="panel chat-panel">
+        <div class="chat-header">
+          <div>
+            <h2>Resume Assistant</h2>
+            <p>Ask a question to get quick answers.</p>
+          </div>
+          <div class="chat-status" id="chat-status">Ready</div>
+        </div>
+        <div id="chat-log" class="chat-log"></div>
+        <form id="chat-form" class="chat-form">
+          <input
+            id="chat-input"
+            type="text"
+            placeholder="Ask about skills, projects, experience..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
