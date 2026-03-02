@@ -1,6 +1,10 @@
 import os
+from pathlib import Path
 from groq import Groq
+from dotenv import load_dotenv
 from backend.tools.prompts import system_prompt
+
+load_dotenv(dotenv_path=Path(__file__).resolve().parents[2] / ".env")
 
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")

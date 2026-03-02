@@ -2,12 +2,21 @@
    STATE
 ══════════════════════════════════════════ */
 let chatStarted = false;
+const SESSION_KEY = "resume_chat_session";
 
 const app       = document.getElementById('app');
 const welcome   = document.getElementById('chat-welcome');
 const messagesEl = document.getElementById('messages');
 const inputEl   = document.getElementById('chat-input');
 const header    = document.getElementById('chat-header');
+
+function getSessionId() {
+  const stored = localStorage.getItem(SESSION_KEY);
+  if (stored) return stored;
+  const id = crypto.randomUUID();
+  localStorage.setItem(SESSION_KEY, id);
+  return id;
+}
 
 /* ══════════════════════════════════════════
    MOBILE DRAWER TOGGLE
@@ -265,10 +274,11 @@ async function sendMessage() {
 
   
   try {
+    const sessionId = getSessionId();
     const res = await fetch('/chats', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: text })
+      body: JSON.stringify({ message: text, session_id: sessionId })
     });
     if (!res.ok) {
       const errText = await res.text().catch(() => '');
