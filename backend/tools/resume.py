@@ -6,7 +6,7 @@ from backend.tools.rag import (
     save_cached_index,
 )
 
-_CACHE_PATH = "backend/tools/.cache/resume_embeddings.json"
+_CACHE_PATH = "backend/tools/.cache/resume_bm25.json"
 _INDEX = None
 
 def answer_resume_question(
@@ -30,8 +30,8 @@ def answer_resume_question(
     if history:
         history_text = "\n".join(history[-6:])  # last 3 turns
 
-    _, chunks, embeddings = _INDEX
-    relevant = retrieve_relevant_chunks(user_message, chunks, embeddings, top_k=4)
+    _, chunks, tokenized_chunks = _INDEX
+    relevant = retrieve_relevant_chunks(user_message, chunks, tokenized_chunks, top_k=4)
     context = "\n\n".join(relevant)
 
     prompt = f"""

@@ -1,8 +1,7 @@
 uvicorn[standard]>=0.35.0,<1.0.0
 requests
 pydantic>=2.11.0,<3.0.0
-sentence-transformers
-numpy
+rank-bm25
 google-api-python-client
 google-auth
 huggingface_hub

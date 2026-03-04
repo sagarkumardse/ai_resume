@@ -1,21 +1,10 @@
 import hashlib
 import json
 import os
+import re
 from typing import List, Tuple
 
-import numpy as np
-from sentence_transformers import SentenceTransformer
-
-
-_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-_MODEL = None
-
-
-def _get_model() -> SentenceTransformer:
-    global _MODEL
-    if _MODEL is None:
-        _MODEL = SentenceTransformer(_MODEL_NAME)
-    return _MODEL
+from rank_bm25 import BM25Okapi
 
 
 def _resume_hash(resume: dict) -> str:
@@ -57,29 +46,37 @@ def _chunk_texts(texts: List[str], max_chars: int = 900) -> List[str]:
     return chunks
 
 
-def build_resume_index(resume: dict) -> Tuple[str, List[str], np.ndarray]:
+def _tokenize(text: str) -> List[str]:
+    # Lowercase alphanumeric tokenization keeps the retriever lightweight.
+    return re.findall(r"\w+", text.lower())
+
+
+def build_resume_index(resume: dict) -> Tuple[str, List[str], List[List[str]]]:
     resume_id = _resume_hash(resume)
     flattened = _flatten_resume(resume)
     chunks = _chunk_texts(flattened)
-    model = _get_model()
-    embeddings = model.encode(chunks, normalize_embeddings=True)
-    return resume_id, chunks, embeddings
+    tokenized_chunks = [_tokenize(chunk) for chunk in chunks]
+    return resume_id, chunks, tokenized_chunks
 
 
 def retrieve_relevant_chunks(
     query: str,
     chunks: List[str],
-    embeddings: np.ndarray,
+    tokenized_chunks: List[List[str]],
     top_k: int = 4,
 ) -> List[str]:
-    model = _get_model()
-    q_emb = model.encode([query], normalize_embeddings=True)[0]
-    scores = np.dot(embeddings, q_emb)
-    top_indices = np.argsort(scores)[-top_k:][::-1]
+    if not chunks:
+        return []
+    bm25 = BM25Okapi(tokenized_chunks)
+    query_tokens = _tokenize(query)
+    if not query_tokens:
+        return chunks[:top_k]
+    scores = bm25.get_scores(query_tokens)
+    top_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:top_k]
     return [chunks[i] for i in top_indices]
 
 
-def load_cached_index(cache_path: str) -> Tuple[str, List[str], np.ndarray] | None:
+def load_cached_index(cache_path: str) -> Tuple[str, List[str], List[List[str]]] | None:
     if not os.path.exists(cache_path):
         return None
     try:
@@ -87,18 +84,25 @@ def load_cached_index(cache_path: str) -> Tuple[str, List[str], np.ndarray] | No
             data = json.load(f)
         resume_id = data["resume_id"]
         chunks = data["chunks"]
-        embeddings = np.array(data["embeddings"], dtype=np.float32)
-        return resume_id, chunks, embeddings
+        tokenized_chunks = data.get("tokenized_chunks")
+        if tokenized_chunks is None:
+            return None
+        return resume_id, chunks, tokenized_chunks
     except Exception:
         return None
 
 
-def save_cached_index(cache_path: str, resume_id: str, chunks: List[str], embeddings: np.ndarray) -> None:
+def save_cached_index(
+    cache_path: str,
+    resume_id: str,
+    chunks: List[str],
+    tokenized_chunks: List[List[str]],
+) -> None:
     os.makedirs(os.path.dirname(cache_path), exist_ok=True)
     payload = {
         "resume_id": resume_id,
         "chunks": chunks,
-        "embeddings": embeddings.tolist(),
+        "tokenized_chunks": tokenized_chunks,
     }
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=True)

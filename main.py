@@ -28,7 +28,7 @@ CHAT_STORE: Dict[str, List[str]] = {}
 SCHEDULER_API_URL = os.getenv("SCHEDULER_API_URL")
 SCHEDULER_API_TIMEOUT_SEC = float(os.getenv("SCHEDULER_API_TIMEOUT_SEC", "15"))
 SCHEDULER_COMMAND_EXAMPLE = {
-    "command": "Schedule a meeting with john@example.com and sarah@company.com next Tuesday at 9:30 PM for 45 minutes about Q2 planning",
+    "command": "Schedule a meeting with sagar with example@mail.com and example2@mail.com next Tuesday at 9:30 PM for 45 minutes AI position at XYZ INC. Data scientiest role.",
     "history": None,
 }
 
