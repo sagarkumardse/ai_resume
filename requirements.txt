@@ -1,10 +1,11 @@
 uvicorn[standard]>=0.35.0,<1.0.0
-requests
+requests==2.32.3
 pydantic>=2.11.0,<3.0.0
 rank-bm25
-google-api-python-client
-google-auth
+google-api-python-client==2.116.0
+google-auth==2.27.0
 huggingface_hub
 fastapi>=0.116.0,<1.0.0
 python-dotenv>=1.0.1,<2.0.0
 groq==0.11.0
+httpx<0.28
