@@ -100,6 +100,24 @@
 
   "projects": [
     {
+      "name": "AI Resume Copilot + Meeting Scheduler",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "Groq API",
+        "RAG",
+        "BM25",
+        "Railway"
+      ],
+      "duration": "2026",
+      "highlights": [
+        "Built a production-ready AI Resume Copilot using FastAPI, LangChain orchestration, and Groq LLM APIs for low-latency conversational Q&A",
+        "Implemented context-aware intent routing and multi-turn scheduling automation with session memory, follow-up handling, and external scheduler API integration",
+        "Optimized deployment by replacing heavy embedding stack with BM25 retrieval, reducing container footprint and improving Railway cloud deploy reliability"
+      ]
+    },
+    {
       "name": "Algorithmic Trading Using CNN",
       "technologies": ["CNN", "Deep Learning", "Technical Indicators"],
       "duration": "2023-02 to 2023-05",
